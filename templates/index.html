@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chatbot</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <style>
+        .bg-custom-gradient {
+            background: linear-gradient(to right, #252656, #300152);
+        }
+    </style>
+</head>
+<body class="bg-custom-gradient flex items-center justify-center h-screen">
+    <div class="container max-w-md mx-auto bg-white rounded-lg shadow-lg p-6">
+        <h1 class="text-2xl font-poppins mb-6 text-center">ChatBot</h1>
+        <div class="chat-box border rounded-lg p-4 h-96 overflow-y-auto bg-gray-50">
+            <div id="chat-log" class="space-y-6"></div>
+        </div>
+        <form id="chat-form" class="mt-4 flex">
+            <input type="text" id="user-input" class="flex-grow border rounded-l-lg p-2" placeholder="Type your message..." required>
+            <button type="submit" class="text-white p-4 rounded-r-lg" style="background-color: rgb(48, 3, 99);">Send</button>
+
+        </form>
+    </div>
+    <script>
+        document.getElementById('chat-form').addEventListener('submit', async function(event) {
+            event.preventDefault();
+            const userInput = document.getElementById('user-input').value;
+            document.getElementById('user-input').value = '';
+            const chatLog = document.getElementById('chat-log');
+            chatLog.innerHTML += `<div class="user-message bg-blue-100 p-2 rounded-lg"><strong>You:</strong> ${userInput}</div>`;
+            const response = await fetch('/chat', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded',
+                },
+                body: new URLSearchParams({ 'user_input': userInput })
+            });
+            const data = await response.json();
+            chatLog.innerHTML += `<div class="bot-message bg-green-100 p-2 rounded-lg"><strong>Chatbot:</strong> ${data.response}</div>`;
+            chatLog.innerHTML += `<div class="time-message text-gray-500 text-sm"><strong>Time Taken:</strong> ${data.time.toFixed(2)} seconds</div>`;
+            chatLog.scrollTop = chatLog.scrollHeight;
+        });
+    </script>
+</body>
+</html>

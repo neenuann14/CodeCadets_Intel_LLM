@@ -1,0 +1,6 @@
+torch
+transformers
+openvino
+optimum[openvino]
+openvino-dev
+nncf
