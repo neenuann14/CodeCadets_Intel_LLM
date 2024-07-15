@@ -28,6 +28,16 @@ Ensure you have the necessary dependencies installed. You can install the requir
 ```
 pip install -r requirements.txt
 ```
+Create a virtual environment
+
+conda create --name myenv python=3.8
+
+Virtual environment named myenv  is created.
+ 
+Activate  the virtual environment
+
+conda activate myenv
+
 ## Files and Scripts
 exporttoonnx.py: Converts the BlenderBot model to an ONNX model and saves it in a new folder blenderbot_openvino_ir.
 
@@ -44,6 +54,8 @@ app_original.py: Similar to app.py but uses the original model for comparison.
 chatbot.py: Quantizes BlenderBot-9B and uses the quantized model for the chatbot (run in Colab).
 
 static/: Contains HTML, Tailwind CSS, and JavaScript for the user interface.
+
+templates/ : contains index.html for user interface.
 
 ## Usage
 Convert to ONNX
