@@ -6,15 +6,25 @@ This project demonstrates the use of OpenVINO to deploy large language models (L
 
 ## Table of Contents
 Introduction
+
 Setup
+
 Files and Scripts
+
 Usage
+
 Convert to ONNX
+
 Convert to IR
+
 Quantize Model
+
 Run the Chatbot
+
 Compare Performance
+
 User Interface
+
 
 ## Introduction
 This project uses the BlenderBot-400M-distilled conversational chatbot model. The goal is to optimize the model for use on Intel AI laptops using OpenVINO.
@@ -24,19 +34,24 @@ Implement the BlenderBot 400M distilled model, which balances performance and co
 Achieve comparable performance to larger models while using less memory and computational power.
 
 ## Setup
-Ensure you have the necessary dependencies installed. You can install the required packages using:
-```
-pip install -r requirements.txt
-```
-Create a virtual environment
 
+Create a virtual environment
+```
 conda create --name myenv python=3.8
+```
 
 Virtual environment named myenv  is created.
  
 Activate  the virtual environment
-
+```
 conda activate myenv
+```
+
+Ensure you have the necessary dependencies installed. You can install the required packages using:
+```
+pip install -r requirements.txt
+```
+
 
 ## Files and Scripts
 exporttoonnx.py: Converts the BlenderBot model to an ONNX model and saves it in a new folder blenderbot_openvino_ir.
