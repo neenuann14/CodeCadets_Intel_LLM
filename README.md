@@ -73,27 +73,28 @@ static/: Contains HTML, Tailwind CSS, and JavaScript for the user interface.
 templates/ : contains index.html for user interface.
 
 ## Usage
-Convert to ONNX
+Step 1: Convert to ONNX
 To convert the BlenderBot model to an ONNX model, run:
 ```
 python exporttoonnx.py
 ```
-Convert to IR
+Step 2: Convert to IR
 To convert the ONNX model to an IR model, run:
 ```
 python onnx_to_ir_model.py
 ```
-Quantize Model
+Step 3: Quantize Model
 To quantize the IR model, run:
 ```
 python quantization.py
 ```
-Run the Chatbot
+Step 4: Run the Chatbot
 To run the chatbot using the quantized model, run:
 ```
 python quantized_chatbot.py
 ```
-Compare Performance
+Step 5: Compare Performance
+
 To compare the performance of the original and quantized models, you can use:
 ```
 python app.py  # For quantized model
