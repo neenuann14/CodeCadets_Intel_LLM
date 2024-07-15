@@ -30,12 +30,19 @@ pip install -r requirements.txt
 ```
 ## Files and Scripts
 exporttoonnx.py: Converts the BlenderBot model to an ONNX model and saves it in a new folder blenderbot_openvino_ir.
+
 onnx_to_ir_model.py: Converts the ONNX model to an Intermediate Representation (IR) model.
+
 quantization.py: Quantizes the IR model.
+
 quantized_chatbot.py: Uses the quantized model for the chatbot.
+
 app.py: Provides a user interface for the chatbot using the quantized model, displaying the time taken for each response.
+
 app_original.py: Similar to app.py but uses the original model for comparison.
+
 chatbot.py: Quantizes BlenderBot-9B and uses the quantized model for the chatbot (run in Colab).
+
 static/: Contains HTML, Tailwind CSS, and JavaScript for the user interface.
 
 ## Usage
